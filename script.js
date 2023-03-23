@@ -1,21 +1,20 @@
 const choices = ["rock", "paper", "scissors"];
 const winners = [];
 
-// plays 5 rounds of rock, paper, and scissors
-function playGame() {
-    for (let i = 1; i <= 5; i++) {
-        playRound(i);
-    }
-    displayWinner();
-}
+// // plays 5 rounds of rock, paper, and scissors
+// function playGame() {
+//     for (let i = 1; i <= 5; i++) {
+//         playRound(i);
+//     }
+//     displayWinner();
+// }
 
 // function that plays a single round of rock, paper, scissors and keeps score
-function playRound(round) {
-    const playerChoice = getPlayerChoice();
+function playRound(playerChoice) {
     const computerChoice = getComputerChoice();
     const winner = getWinner(playerChoice, computerChoice);
     winners.push(winner);
-    displayRound(playerChoice, computerChoice, winner, round);
+    displayRound(playerChoice, computerChoice, winner);
 }
 
 // computer randomly picks rock, paper, or scissors 
@@ -23,10 +22,15 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
-// player picks rock, paper, or scissors
-function getPlayerChoice() {
-    return prompt("Enter rock, paper, or scissors").toLowerCase();
-}
+// Get Player Selection using DOM buttons
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {  // use .forEach to iterate through each button
+    button.addEventListener('click', () => {
+        const playerSelection = button.getAttribute('id');  // assign the id of the clicked button with the playerChoice
+        playRound(playerSelection);
+    })
+})
 
 // Determine and display winner 
 function getWinner(playerChoice, computerChoice) {
@@ -53,8 +57,8 @@ function displayWinner() {
     console.log("Ties:", ties);
 }
 
-function displayRound(playerChoice, computerChoice, winner, round) {
-    console.log("Round:", round)
+function displayRound(playerChoice, computerChoice, winner) {
+    console.log("Round:", 1);
     console.log("Player Choice:", playerChoice);
     console.log("Computer Choice:", computerChoice);
     console.log(winner, "Won the Round");
