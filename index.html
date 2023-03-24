@@ -6,11 +6,27 @@
         <script defer src="script.js"></script>
     </head>
     <body>
-        <h1>Rock Paper Scissors</h1>
-        <div class="buttons">
-            <button class="btn" id="rock">Rock</button>
-            <button class="btn" id="paper">Paper</button>
-            <button class="btn" id="scissors">Scissors</button>
+        <div class="container">
+            <div class="title">
+                <h1>Rock Paper Scissors</h1>
+            </div>
+            <div class="buttons">
+                <button class="btn" id="rock">Rock</button>
+                <button class="btn" id="paper">Paper</button>
+                <button class="btn" id="scissors">Scissors</button>
+            </div>
+            <div class="choice">
+                <div class="playerChoice"></div>
+                <div class="computerChoice"></div>
+                <div class="outcome"></div>
+            </div>
+            <div class="score">
+                <div class="playerScore"></div>
+                <div class="computerScore"></div>
+                <div class="tie"></div>
+                <div class="winner"></div>
+            </div>
+            <button class="btn" id="reset" style="display: none">Play Again?</button>
         </div>
     </body>
 </html>
