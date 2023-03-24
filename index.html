@@ -3,30 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
-        <script defer src="script.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer ></script>
     </head>
     <body>
         <div class="container">
             <div class="title">
                 <h1>Rock Paper Scissors</h1>
             </div>
+            <div class="score">
+                <div class="playerScore">Player: 0</div>
+                <div class="tie">Ties: 0</div>
+                <div class="computerScore">Computer: 0</div>
+            </div>
+            <div class="choice">
+                <div class="playerChoice"></div>
+                <div class="outcome"></div>
+                <div class="computerChoice"></div>
+            </div>
             <div class="buttons">
                 <button class="btn" id="rock">Rock</button>
                 <button class="btn" id="paper">Paper</button>
                 <button class="btn" id="scissors">Scissors</button>
             </div>
-            <div class="choice">
-                <div class="playerChoice"></div>
-                <div class="computerChoice"></div>
-                <div class="outcome"></div>
+            <div class="play-again">
+                <button class="btn" id="reset">Play Again?</button>
             </div>
-            <div class="score">
-                <div class="playerScore"></div>
-                <div class="computerScore"></div>
-                <div class="tie"></div>
+            <div class="win-message">
                 <div class="winner"></div>
             </div>
-            <button class="btn" id="reset" style="display: none">Play Again?</button>
         </div>
     </body>
 </html>

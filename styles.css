@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+/* CCS Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* Page Layout */
+body {
+    width: 98%;
+    max-width: 1500px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: aquamarine;
+    font-family: 'Lilita One', cursive;
+}
+
+.title {
+    margin-top: 24px;
+    margin-bottom: 72px;
+}
+
+.container {
+    display: flex;
+    text-align: center;
+    gap: 48px;
+    flex-direction: column;
+    font-size: 32px;
+    color: #d45069;
+}
+
+.score {
+    display: flex;
+    justify-content: space-between;
+}
+
+.choice {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Button Style */
+.btn {
+    width: 150px;
+    height: 50px;
+    font-size: 30px;
+    font-family: inherit;
+    color: inherit;
+}
+
+#reset {
+    display: none;
+    width: 200px;
+}
