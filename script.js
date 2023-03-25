@@ -1,11 +1,11 @@
 // UI
 const buttons = document.querySelectorAll('button');
 const reset = document.querySelector('#reset');
-const playerScore = document.querySelector('.playerScore');
-const computerScore = document.querySelector('.computerScore');
+const playerScore = document.querySelector('.player-score');
+const computerScore = document.querySelector('.computer-score');
 const tieScore = document.querySelector('.tie');
-const playerC = document.querySelector('.playerChoice');
-const computerC = document.querySelector('.computerChoice');
+const playerC = document.getElementById('player-choice');
+const computerC = document.getElementById('computer-choice');
 const outcome = document.querySelector('.outcome');
 const finalWinner = document.querySelector('.winner');
 
@@ -39,12 +39,13 @@ function playRound(playerChoice) {
     const computerChoice = getComputerChoice();
     const winner = getWinner(playerChoice, computerChoice);
     winners.push(winner);
+    displayChoice(playerChoice, computerChoice);
     displayRound(playerChoice, computerChoice, winner);
     displayScore();
 
     wins = checkWins();
     if (wins == 5) {
-        displayEnd();
+        displayResult();
     }
 }
 
@@ -73,11 +74,33 @@ function displayScore() {
     tieScore.textContent = `Ties: ${ties}`;
 }
 
-// Display the selection of the user and the computer along with the outcome of each round using DOM
-function displayRound(playerChoice, computerChoice, winner) {
-    playerC.textContent = `The Player has chosen ${playerChoice}`;
-    computerC.textContent = `The Computer has chosen ${computerChoice}`;
+// Display the selection of the user and the computer
+function displayChoice(playerChoice, computerChoice) {
+    if (playerChoice === "rock") {
+        playerC.src="images/player-rock.png";
+        playerC.alt="Rock";
+    } else if (playerChoice === "paper") {
+        playerC.src="images/player-paper.png";
+        playerC.alt="Paper";
+    } else {
+        playerC.src="images/player-scissors.png";
+        playerC.alt="Scissors";
+    };
 
+    if (computerChoice === "rock") {
+        computerC.src="images/computer-rock.png";
+        computerC.alt="Rock";
+    } else if (computerChoice === "paper") {
+        computerC.src="images/computer-paper.png";
+        computerC.alt="Paper";
+    } else {
+        computerC.src="images/computer-scissors.png";
+        computerC.alt="Scissors";
+    };
+};
+
+// Display the outcome of each round using DOM
+function displayRound(playerChoice, computerChoice, winner) {
     if (winner === "Player") {
         outcome.textContent = `You won the round! ${playerChoice} beats ${computerChoice}`;
     } else if (winner === "Computer") {
@@ -95,7 +118,7 @@ function checkWins() {
     return Math.max(playerWins, computerWins);
 }
 
-function displayEnd() {
+function displayResult() {
     let playerWins = winners.filter((winner) => winner == "Player").length;
 
     if (playerWins == 5) {
